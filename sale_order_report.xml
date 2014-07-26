@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+    <record id="jasper_report_sale_order_example" model="ir.actions.report.xml">
+        <field name="name">report.jasper_report_sale_order_example</field>
+        <field name="type">ir.actions.report.xml</field>
+        <field name="model">sale.order</field>
+        <field name="report_name">jasper_report_sale_order_example</field>
+        <field name="report_rml">jasper_report_example/template/template.jrxml</field>
+        <field name="report_type">pdf</field>
+        <field name="jasper_report">True</field>
+        <field name="jasper_output">pdf</field>
+    </record>
+
+</data>
+</openerp>

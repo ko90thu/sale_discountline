@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sale_order_inno" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d18cbc32-7a53-46c5-9060-14b455ba9304">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="174"/>
+	<parameter name="disc_type" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString language="plsql">
+		<![CDATA[select so.name,so.date_order,sh.name,res.name,pd.name_template,sol.product_uom_qty,um.name,sol.price_unit
+from sale_order so
+inner join sale_order_line sol on sol.order_id=so.id
+inner join res_partner res on res.id=so.partner_id
+inner join product_product pd on pd.id=sol.product_id
+inner join product_uom um on um.id=sol.product_uom
+inner join sale_shop sh on sh.id=so.shop_id
+
+]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="create_uid" class="java.lang.Integer"/>
+	<field name="create_date" class="java.sql.Timestamp"/>
+	<field name="write_date" class="java.sql.Timestamp"/>
+	<field name="write_uid" class="java.lang.Integer"/>
+	<field name="origin" class="java.lang.String">
+		<fieldDescription><![CDATA[Source Document]]></fieldDescription>
+	</field>
+	<field name="order_policy" class="java.lang.String">
+		<fieldDescription><![CDATA[Create Invoice]]></fieldDescription>
+	</field>
+	<field name="shop_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Shop]]></fieldDescription>
+	</field>
+	<field name="client_order_ref" class="java.lang.String">
+		<fieldDescription><![CDATA[Customer Reference]]></fieldDescription>
+	</field>
+	<field name="date_order" class="java.sql.Date">
+		<fieldDescription><![CDATA[Date]]></fieldDescription>
+	</field>
+	<field name="partner_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Customer]]></fieldDescription>
+	</field>
+	<field name="note" class="java.lang.String">
+		<fieldDescription><![CDATA[Internal Notes]]></fieldDescription>
+	</field>
+	<field name="fiscal_position" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Fiscal Position]]></fieldDescription>
+	</field>
+	<field name="user_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Project Manager]]></fieldDescription>
+	</field>
+	<field name="payment_term" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Payment Terms]]></fieldDescription>
+	</field>
+	<field name="company_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Company]]></fieldDescription>
+	</field>
+	<field name="amount_tax" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Tax]]></fieldDescription>
+	</field>
+	<field name="state" class="java.lang.String"/>
+	<field name="pricelist_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Price List]]></fieldDescription>
+	</field>
+	<field name="partner_invoice_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Invoice Address]]></fieldDescription>
+	</field>
+	<field name="amount_untaxed" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Subtotal]]></fieldDescription>
+	</field>
+	<field name="date_confirm" class="java.sql.Date">
+		<fieldDescription><![CDATA[Confirmation Date]]></fieldDescription>
+	</field>
+	<field name="amount_total" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Total]]></fieldDescription>
+	</field>
+	<field name="project_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Contract / Analytic]]></fieldDescription>
+	</field>
+	<field name="name" class="java.lang.String"/>
+	<field name="partner_shipping_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Delivery Address]]></fieldDescription>
+	</field>
+	<field name="invoice_quantity" class="java.lang.String">
+		<fieldDescription><![CDATA[Invoice on]]></fieldDescription>
+	</field>
+	<field name="margin" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Margin]]></fieldDescription>
+	</field>
+	<field name="picking_policy" class="java.lang.String">
+		<fieldDescription><![CDATA[Shipping Policy]]></fieldDescription>
+	</field>
+	<field name="incoterm" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Incoterm]]></fieldDescription>
+	</field>
+	<field name="shipped" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[Delivered]]></fieldDescription>
+	</field>
+	<field name="invoice_type_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Invoice Type]]></fieldDescription>
+	</field>
+	<field name="disc_type" class="java.lang.String">
+		<fieldDescription><![CDATA[Discount Type]]></fieldDescription>
+	</field>
+	<field name="sale_type" class="java.lang.String">
+		<fieldDescription><![CDATA[Sale Types]]></fieldDescription>
+	</field>
+	<field name="product_uos_qty" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[UoS Quantity]]></fieldDescription>
+	</field>
+	<field name="product_uom" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Product Unit of Measure]]></fieldDescription>
+	</field>
+	<field name="sequence" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Sequence]]></fieldDescription>
+	</field>
+	<field name="order_id" class="java.lang.Integer"/>
+	<field name="price_unit" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Unit Price]]></fieldDescription>
+	</field>
+	<field name="product_uom_qty" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Quantity]]></fieldDescription>
+	</field>
+	<field name="discount" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Discount (%)]]></fieldDescription>
+	</field>
+	<field name="product_uos" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Product UoS]]></fieldDescription>
+	</field>
+	<field name="salesman_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Salesperson]]></fieldDescription>
+	</field>
+	<field name="product_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Product]]></fieldDescription>
+	</field>
+	<field name="order_partner_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Customer]]></fieldDescription>
+	</field>
+	<field name="th_weight" class="java.lang.Double">
+		<fieldDescription><![CDATA[Weight]]></fieldDescription>
+	</field>
+	<field name="invoiced" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[Invoiced]]></fieldDescription>
+	</field>
+	<field name="type" class="java.lang.String">
+		<fieldDescription><![CDATA[Internal Type]]></fieldDescription>
+	</field>
+	<field name="address_allotment_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Allotment Partner]]></fieldDescription>
+	</field>
+	<field name="purchase_price" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Cost Price]]></fieldDescription>
+	</field>
+	<field name="procurement_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Procurement]]></fieldDescription>
+	</field>
+	<field name="delay" class="java.lang.Double">
+		<fieldDescription><![CDATA[Delivery Lead Time]]></fieldDescription>
+	</field>
+	<field name="product_packaging" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Packaging]]></fieldDescription>
+	</field>
+	<field name="discount_amount" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Discount Amount]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="92" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="20" width="100" height="20" uuid="928d068d-f4f0-4074-8c6a-185afa3e7487"/>
+				<text><![CDATA[Customer]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="101" y="20" width="100" height="20" uuid="bc804326-d5ae-4ffa-aa39-335cbe5ec7b0"/>
+				<textFieldExpression><![CDATA[$F{partner_id}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="355" y="0" width="100" height="20" uuid="68fa3ca3-0f3c-4c1d-b9a2-8f202cbe6852"/>
+				<text><![CDATA[Shop]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="929187ef-7dfe-44f0-a864-5926f17ad140"/>
+				<textFieldExpression><![CDATA[$F{shop_id}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="0" width="100" height="20" uuid="b8e399ea-25c8-4015-b07b-0b50876947b6"/>
+				<text><![CDATA[Sale Order]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="101" y="0" width="100" height="20" uuid="11450079-ac8e-4851-a6fc-b222cf217389"/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="72" width="100" height="20" uuid="a49b9bb2-59d7-4261-9a1a-75d0b5bd83e5"/>
+				<text><![CDATA[Product]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="355" y="20" width="100" height="20" uuid="66ecd017-6c8a-45d5-ba3b-13ccea6d7e2e"/>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="20" width="100" height="20" uuid="f5f3a74b-a579-4c60-b2cb-b4100ec971b8"/>
+				<textFieldExpression><![CDATA[$F{date_order}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="101" y="72" width="100" height="20" uuid="e86ac7ac-4ff7-4060-87e1-a6a360af4c6e"/>
+				<text><![CDATA[Quantity]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="201" y="72" width="100" height="20" uuid="fd874529-0c2d-4092-a0ea-18163ee6a76b"/>
+				<text><![CDATA[Unit Price]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="0" width="100" height="20" uuid="34f9b180-87e1-405e-97cf-6771b02a9ff6"/>
+				<textFieldExpression><![CDATA[$F{pd.name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="101" y="0" width="100" height="20" uuid="082b0054-66fd-4633-b210-9c0d0e8879c9"/>
+				<textFieldExpression><![CDATA[$F{sol.product_uom_qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="201" y="0" width="100" height="20" uuid="5dd58652-88e7-455e-9729-1a01e3ae058f"/>
+				<textFieldExpression><![CDATA[$F{sol.price_unit}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

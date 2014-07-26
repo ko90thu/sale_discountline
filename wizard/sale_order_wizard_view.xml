@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="sale_order_wizard_distest" model="ir.ui.view">
+            <field name="name">Sale Order Report</field>
+            <field name="model">sale.order.report</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Sale Order Report" version="7.0">
+                    <group>
+							<button icon="gtk-cancel" special="cancel" string="Cancel"/>
+							<button icon="gtk-ok" name="start_report" string="Print" type="object"/>
+                    </group>                    
+                </form>
+            </field>
+        </record>
+
+        <record id="sale_order_wizard_action" model="ir.actions.act_window">
+            <field name="name">Sale Order Report</field>
+            <field name="res_model">sale.order.report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sale_order_wizard_distest"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem icon="STOCK_PRINT"
+                name=" Sale Report"
+                action="sale_order_wizard_action"
+                id="menu_sale_order_wizard_action"
+                parent="base.next_id_64"/>
+	
+
+
+
+    </data>
+</openerp>
